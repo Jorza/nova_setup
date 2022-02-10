@@ -1,0 +1,21 @@
+FROM ubuntu:bionic
+
+# Create new user 'nova-dev' in sudo group with password 'rovanova'
+# Allow nova-dev to use sudo without a password
+RUN apt update && \
+    apt install sudo -y
+RUN useradd -ms /bin/bash -UG sudo nova-dev && \
+    echo 'nova-dev:rovanova' | chpasswd && \
+    echo 'nova-dev ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Install basic editors and packages for python and C++
+RUN apt install -y vim nano git python3 python3-pip libudev-dev
+
+# Add timezone info so docker doesn't hang during later installs
+ENV TZ=Australia/Melbourne
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Switch to new user
+USER nova-dev
+ENV USER=nova-dev
+WORKDIR /home/nova-dev
