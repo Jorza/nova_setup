@@ -23,6 +23,10 @@ Has access to a nova_ws folder on the host, and has access to the host's SSH inf
 2. Set up git pull / push from github/com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
 3. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
 4. Clone the nova_setup repo into the same parent folder as nova_ws. For example, I put mine in ~/Nova/nova_setup
+5. Change into the nova_setup directory and run the git setup script to clone all the Nova repos
+```
+./git-setup.sh
+```
 
 ### Starting containers
 To create or start a container, change to the container directory and run the compose-run-<container-nickname> script.
