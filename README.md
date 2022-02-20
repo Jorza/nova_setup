@@ -70,6 +70,8 @@ This is really only necessary when you want to update the container image. Any c
     
 ## Creating an image
 
+This is not necessary for installation or use. Talk to the repo maintainers if you find an issue with a container.
+
 0. Install Docker
 1. Create a DockerHub account
 2. Clone the nova_setup repo anywhere on your system
