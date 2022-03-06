@@ -14,6 +14,7 @@ Has access to a nova_ws folder on the host, and has access to the host's SSH inf
 A (mostly) complete Ubuntu 18.04 Nova development environment.
 Includes everything from nova-dev-base, and has all the Nova repos set up by default and all dependencies (except the GUI, but including KDL) installed.
 Has access to a nova_ws folder on the host, and has access to the host's SSH info for using git.
+Is not fully secure - consider running untrusted code within this container as running it on your machine directly
 
 
 ## Using an image
@@ -52,12 +53,14 @@ To exit a container terminal (without destroying it), run
 ```
 exit
 ```
-    
+
+This keeps the container running in the background, so you can later run ./compose-run-<container-nickname>.sh and pick up where you left off.
+ 
 To stop all container instances (without destroying the container), open a host terminal and run
 ```    
 sudo docker-compose stop
 ```
-
+ 
 This saves the state of the container, so you can later run ./compose-run-<container-nickname>.sh and pick up where you left off.
 
 To destroy all container instances, open a host terminal and run
@@ -66,8 +69,19 @@ sudo docker-compose down
 ```
 
 This is really only necessary when you want to update the container image. Any changes made within the container will be lost.
-
     
+## Updating an image
+If a new image has been released follow these steps to get the new image and run the updated container.
+1. Destroy the old container. Note this will also permanently delete any change made locally within the container.
+```
+sudo docker rm -f <container-nickname>
+```
+2. Update the image.
+```
+sudo docker pull jorza/<container-nickname>
+```
+3. Start the container as normal (see Starting Containers)
+
 ## Creating an image
 
 This is not necessary for installation or use. Talk to the repo maintainers if you find an issue with a container.
