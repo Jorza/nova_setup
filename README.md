@@ -6,14 +6,14 @@ Contains dockerfiles, scripts and other files to set up a Nova development envir
 ## Images in this repo
 
 ### nova-dev-base
-A basic Ubuntu 18.04 system with some general dependencies.
-Includes python, C++, vim, nano, and a user called nova-dev with sudo priveleges.
-Has access to a nova_ws folder on the host, and has access to the host's SSH info for using git.
+A basic Ubuntu 18.04 system with some general dependencies.  
+Includes python, C++, vim, nano, and a user called nova-dev with sudo priveleges.  
+Has access to a nova_ws folder on the host, and has access to the host's SSH info for using git.  
 
 ### nova-dev-ros2
-A (mostly) complete Ubuntu 18.04 Nova development environment.
-Includes everything from nova-dev-base, and has all the Nova repos set up by default and all dependencies (except the GUI, but including KDL) installed.
-Has access to a nova_ws folder on the host, and has access to the host's SSH info for using git.
+A (mostly) complete Ubuntu 18.04 Nova development environment.  
+Includes everything from nova-dev-base, and has all the Nova repos set up by default and all dependencies (except the GUI, but including KDL) installed.  
+Has access to a nova_ws folder on the host, and has access to the host's SSH info for using git.  
 Is not fully secure - consider running untrusted code within this container as running it on your machine directly
 
 
@@ -72,7 +72,7 @@ This is really only necessary when you want to update the container image. Any c
     
 ## Updating an image
 If a new image has been released follow these steps to get the new image and run the updated container.
-1. Destroy the old container. Note this will also permanently delete any change made locally within the container.
+1. Destroy the old container. Note this will also permanently delete any changes made locally within the container.
 ```
 sudo docker rm -f <container-nickname>
 ```
@@ -80,7 +80,7 @@ sudo docker rm -f <container-nickname>
 ```
 sudo docker pull jorza/<container-nickname>
 ```
-3. Start the container as normal (see Starting Containers)
+3. Start the updated container as normal (see Starting Containers)
 
 ## Creating an image
 
