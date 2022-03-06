@@ -12,6 +12,7 @@ git clone git@github.com:MonashNovaRover/core.git
 git clone git@github.com:MonashNovaRover/electronics.git
 git clone git@github.com:MonashNovaRover/gui.git
 git clone git@github.com:MonashNovaRover/science.git
+git clone git@github.com:MonashNovaRover/visualisation.git
 cd $cwd
 
 # Clone the other GitHub files

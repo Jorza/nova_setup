@@ -18,3 +18,6 @@ sudo apt install -y python-rosdep
 sudo rosdep init
 rosdep update
 sudo apt install -y python3-colcon-common-extensions
+
+# Install ros2 bag
+sudo apt install -y ros-eloquent-ros2bag ros-eloquent-rosbag2-converter-default-plugins ros-eloquent-rosbag2-storage-default-plugins
