@@ -48,6 +48,13 @@ All files in the nova_ws directory are shared between the host system and the co
 You can also make changes within the container such as installing new packages or creating / deleting files.
 Any changes made outside of the nova_ws diretcory will stay only in the container and will not be accessible on the host.
 
+### Using git within a container
+If this is the first time you've used git in this container you will need to set the git global config info before you commit or push.
+```
+git config --global user.name "Your name"
+git config --global user.email "your@email.com"
+```
+ 
 ### Exiting containers
 To exit a container terminal (without destroying it), run
 ```
