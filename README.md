@@ -49,7 +49,7 @@ You can also make changes within the container such as installing new packages o
 Any changes made outside of the nova_ws diretcory will stay only in the container and will not be accessible on the host.
 
 ### Using git within a container
-If this is the first time you've used git in this container you will need to set the git global config info before you commit or push.
+If it is the first time you've used git in a container you will need to set the git global config info before you commit or push.
 ```
 git config --global user.name "Your name"
 git config --global user.email "your@email.com"
@@ -63,14 +63,14 @@ exit
 
 This keeps the container running in the background, so you can later run ./compose-run-\<container-nickname\>.sh and pick up where you left off.
  
-To stop all container instances (without destroying the container), open a host terminal and run
+To stop all container instances (without destroying the container), open a host terminal in the container directory and run
 ```    
 sudo docker-compose stop
 ```
  
 This saves the state of the container, so you can later run ./compose-run-\<container-nickname\>.sh and pick up where you left off.
 
-To destroy all container instances, open a host terminal and run
+To destroy all container instances, open a host terminal in the container directory and run
 ```    
 sudo docker-compose down
 ```
@@ -78,19 +78,19 @@ sudo docker-compose down
 This is really only necessary when you want to update the container image. Any changes made within the container will be lost.
     
 ## Updating an image
-If a new image has been released follow these steps to get the new image and run the updated container.
+If a new image has been released, follow these steps to get the new image and run the updated container.
 1. Destroy the old container. Note this will also permanently delete any changes made locally within the container.
-```
-sudo docker rm -f <container-name>
-```
-For example,
-```
-sudo docker rm -f nova-dev-ros2
-```
+    ```
+    sudo docker rm -f <container-name>
+    ```
+    For example,
+    ```
+    sudo docker rm -f nova-dev-ros2
+    ```
 2. Update the image.
-```
-sudo docker pull jorza/<container-name>
-```
+    ```
+    sudo docker pull jorza/<container-name>
+    ```
 3. Start the updated container as normal (see Starting Containers)
 
 ## Creating an image
@@ -100,10 +100,10 @@ This is not necessary for installation or use. Talk to the repo maintainers if y
 0. Install Docker
 1. Create a DockerHub account
 2. Clone the nova_setup repo anywhere on your system
-3. For nova-dev-ros2 only: Set up git pull / push from github/com/MonashNovaRover on your device using SSH, then copy ~/.ssh to nova_setup/nova-dev-ros2/.ssh
+3. For nova-dev-ros2 only: Set up git pull / push from github/com/MonashNovaRover on your device using SSH, then copy ~/.ssh to nova_setup/nova-dev-ros2/.ssh  
     This is used during the container setup to clone all the Nova repos
-4. Run the build-image script
-    Builds the image from the relevant Dockerfile and pushes it to your DockerHub account.
+4. Run the build-image script  
+    Builds the image from the relevant Dockerfile and pushes it to your DockerHub account.  
     Pass in the name of the folder where the Dockerfile is located, and your DockerHub username.
 
     For example,
@@ -119,4 +119,8 @@ This is not necessary for installation or use. Talk to the repo maintainers if y
     ```
 
 ## Other scripts
-git-setup.sh - Run to clone all Nova repos into ../nova_ws/
+### Git repo setup
+Run to clone all Nova repos into ../nova_ws/. If some repos already exist, they will not be affected.
+```
+git-setup.sh
+```
