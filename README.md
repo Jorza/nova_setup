@@ -30,7 +30,7 @@ Is not fully secure - consider running untrusted code within this container as r
 ```
 
 ### Starting containers
-To create or start a container, change to the container directory and run the compose-run-<container-nickname> script.
+To create or start a container, change to the container directory and run the compose-run-\<container-nickname\> script.
 Creates the container in your current terminal with access to nova_ws for source code and to your ~/.ssh folder so you can use git.
 For example,
 ```   
@@ -61,14 +61,14 @@ To exit a container terminal (without destroying it), run
 exit
 ```
 
-This keeps the container running in the background, so you can later run ./compose-run-<container-nickname>.sh and pick up where you left off.
+This keeps the container running in the background, so you can later run ./compose-run-\<container-nickname\>.sh and pick up where you left off.
  
 To stop all container instances (without destroying the container), open a host terminal and run
 ```    
 sudo docker-compose stop
 ```
  
-This saves the state of the container, so you can later run ./compose-run-<container-nickname>.sh and pick up where you left off.
+This saves the state of the container, so you can later run ./compose-run-\<container-nickname\>.sh and pick up where you left off.
 
 To destroy all container instances, open a host terminal and run
 ```    
@@ -81,11 +81,15 @@ This is really only necessary when you want to update the container image. Any c
 If a new image has been released follow these steps to get the new image and run the updated container.
 1. Destroy the old container. Note this will also permanently delete any changes made locally within the container.
 ```
-sudo docker rm -f <container-nickname>
+sudo docker rm -f <container-name>
+```
+For example,
+```
+sudo docker rm -f nova-dev-ros2
 ```
 2. Update the image.
 ```
-sudo docker pull jorza/<container-nickname>
+sudo docker pull jorza/<container-name>
 ```
 3. Start the updated container as normal (see Starting Containers)
 
@@ -100,17 +104,19 @@ This is not necessary for installation or use. Talk to the repo maintainers if y
     This is used during the container setup to clone all the Nova repos
 4. Run the build-image script
     Builds the image from the relevant Dockerfile and pushes it to your DockerHub account.
-    Pass in the name of the folder where the Dockerfile is located, adn your DockerHub username.
+    Pass in the name of the folder where the Dockerfile is located, and your DockerHub username.
 
     For example,
+    ```  
     ./build-image.sh nova-dev-ros2 <dockerHubUserName>
-
+    ```
     If your DockerHub user name is the same as your current Ubuntu user
     then you can omit the last argument.
 
     For example,
+    ```
     ./build-image.sh nova-dev-ros2
-
+    ```
 
 ## Other scripts
 git-setup.sh - Run to clone all Nova repos into ../nova_ws/
