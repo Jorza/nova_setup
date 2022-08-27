@@ -25,13 +25,13 @@ Is not fully secure - consider running untrusted code within this container as r
 3. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
 4. Clone the nova_setup repo into the same parent folder as nova_ws. For example, I put mine in ~/Nova/nova_setup
 5. Change into the nova_setup directory and run the git setup script to clone all the Nova repos
-```
-./git-setup.sh
-```
-If nova_ws is nested within a git repo, then include the '-s' option to add the Nova repos as submodules
-```
-./git-setup.sh -s
-```
+    ```
+    ./git-setup.sh
+    ```
+    If nova_ws is nested within a git repo, then include the '-s' option to add the Nova repos as submodules
+    ```
+    ./git-setup.sh -s
+    ```
 
 ### Starting containers
 To create or start a container, change to the container directory and run the compose-run-\<container-nickname\> script.
