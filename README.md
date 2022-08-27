@@ -28,6 +28,10 @@ Is not fully secure - consider running untrusted code within this container as r
 ```
 ./git-setup.sh
 ```
+If nova_ws is nested within a git repo, then include the '-s' option to add the Nova repos as submodules
+```
+./git-setup.sh -s
+```
 
 ### Starting containers
 To create or start a container, change to the container directory and run the compose-run-\<container-nickname\> script.
