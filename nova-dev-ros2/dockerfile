@@ -3,7 +3,7 @@ FROM jorza/nova-dev-base AS builder
 WORKDIR /home/nova-dev/setup-scripts
 
 # Start with non-git-dependent scripts
-COPY ./scripts-0 .
+COPY ./install-scripts/scripts-0 .
 RUN ./1-title.sh
 RUN ./2.1-ros2.sh
 RUN ./2.2-cameras.sh
@@ -14,10 +14,11 @@ RUN ./2.3-net-tools.sh
 COPY ./.ssh /home/nova-dev/.ssh
 
 # Run git-dependent scripts
-COPY ./scripts-1 .
+COPY ./install-scripts/scripts-1 .
 RUN ./3.0-git.sh; exit 0
 RUN ./3.1-arm-model-dependencies.sh
-RUN ./4-workspace.sh
+RUN ./4.0-workspace.sh
+RUN ./4.1-git-additional-repos.sh
 #RUN ./5-gui-packages.sh  # Exclude GUI for now. Deletes ROS2
 RUN ./6-end.sh
 

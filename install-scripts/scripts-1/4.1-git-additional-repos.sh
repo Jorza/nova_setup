@@ -1,24 +1,20 @@
 #!/bin/bash
 
-# Save the current working directory
-cwd=$(pwd)
+# Source the setup file for colours and formatting
+source ./0-script-setup.sh
 
-# Clone the ROS2 packages
-mkdir -p ../nova_ws/src && cd $_
-git clone git@github.com:MonashNovaRover/rover.git
-cd /home/$USER/nova_ws/src/rover
-git submodule update --init --recursive
+# Clone the repos
+information "Cloning additional repositories..."
+
+# ROS2 packages
 cd /home/$USER/nova_ws/src
 git clone git@github.com:MonashNovaRover/cameras.git
 git clone git@github.com:MonashNovaRover/gui.git
 git clone git@github.com:MonashNovaRover/visualisation.git
-cd $cwd
 
 # Clone the other GitHub files
-mkdir -p ../nova_ws/other && cd $_
-git clone git@github.com:MonashNovaRover/coms_utils.git
+cd /home/$USER/nova_ws/other
 git clone git@github.com:MonashNovaRover/arduinos.git
 git clone git@github.com:MonashNovaRover/pics.git
 git clone git@github.com:MonashNovaRover/ik_machine.git
 git clone git@github.com:MonashNovaRover/tutorials.git
-cd $cwd

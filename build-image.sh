@@ -5,12 +5,19 @@ if [[ $1 ]]
 then
     IMAGE_NAME=$1
     USER_NAME=$USER
+    TAG="latest"
     if [[ $2 ]]
     then
         USER_NAME=$2
     fi
-    sudo docker build -t $USER_NAME/$IMAGE_NAME ./$IMAGE_NAME
-    sudo docker push $USER_NAME/$IMAGE_NAME
+    if [[ $3 ]]
+    then
+        TAG=$3
+    fi
+    cp -r ./install-scripts ./$IMAGE_NAME
+    sudo docker build -t $USER_NAME/$IMAGE_NAME:$TAG ./$IMAGE_NAME
+    sudo docker push $USER_NAME/$IMAGE_NAME:$TAG
+    rm -r ./$IMAGE_NAME/install-scripts
 else
-    printf "Usage: ./build-image.sh IMAGE_NAME [USER_NAME]\n"
+    printf "Usage: ./build-image.sh IMAGE_NAME [USER_NAME] [TAG]\n"
 fi

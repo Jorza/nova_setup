@@ -4,6 +4,6 @@
 source ./0-script-setup.sh
 
 # Install GUI packages
-cd /home/nova-dev/nova_ws/src/gui/wombatx
+cd /home/$USER/nova_ws/src/gui/wombatx
 npm install
 npm update

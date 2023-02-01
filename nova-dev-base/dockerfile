@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 # Create new user 'nova-dev' in sudo group with password 'rovanova'
 # Allow nova-dev to use sudo without a password
