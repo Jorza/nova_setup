@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   nova-dev-ros2:
-    image: jorza/nova-dev-ros2
+    image: jorza/nova-dev-ros2:foxy
     privileged: true
     volumes:
       # For source code
