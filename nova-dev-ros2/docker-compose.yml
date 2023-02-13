@@ -16,5 +16,5 @@ services:
     environment:
       # For running GUI applications
       DISPLAY: $DISPLAY
-    container_name: nova-dev-ros2
+    container_name: nova-dev-ros2-foxy
     tty: true

@@ -16,5 +16,5 @@ services:
     environment:
       # For running GUI applications
       DISPLAY: $DISPLAY
-    container_name: nova-dev-base
+    container_name: nova-dev-base-focal
     tty: true
