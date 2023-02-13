@@ -21,16 +21,12 @@ Is not fully secure - consider running untrusted code within this container as r
 
 ### Setup
 1. Install Docker (https://docs.docker.com/engine/install/ubuntu/) and Docker Compose (https://docs.docker.com/compose/install/)
-2. Set up git pull / push from github/com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
+2. Set up git pull / push from github.com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
 3. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
 4. Clone the nova_setup repo into the same parent folder as nova_ws. For example, I put mine in ~/Nova/nova_setup
 5. Change into the nova_setup directory and run the git setup script to clone all the Nova repos
     ```
     ./git-setup.sh
-    ```
-    If nova_ws is nested within a git repo, then include the '-s' option to add the Nova repos as submodules
-    ```
-    ./git-setup.sh -s
     ```
 
 ### Starting containers
@@ -69,14 +65,14 @@ This keeps the container running in the background, so you can later run ./compo
  
 To stop all container instances (without destroying the container), open a host terminal in the container directory and run
 ```    
-sudo docker-compose stop
+sudo docker compose stop
 ```
  
 This saves the state of the container, so you can later run ./compose-run-\<container-nickname\>.sh and pick up where you left off.
 
 To destroy all container instances, open a host terminal in the container directory and run
 ```    
-sudo docker-compose down
+sudo docker compose down
 ```
 
 This is really only necessary when you want to update the container image. Any changes made within the container will be lost.
@@ -104,15 +100,15 @@ This is not necessary for installation or use. Talk to the repo maintainers if y
 0. Install Docker
 1. Create a DockerHub account
 2. Clone the nova_setup repo anywhere on your system
-3. For nova-dev-ros2 only: Set up git pull / push from github/com/MonashNovaRover on your device using SSH, then copy ~/.ssh to nova_setup/nova-dev-ros2/.ssh  
+3. For nova-dev-ros2 only: Set up git pull / push from github.com/MonashNovaRover on your device using SSH  
     This is used during the container setup to clone all the Nova repos
 4. Run the build-image script  
     Builds the image from the relevant Dockerfile and pushes it to your DockerHub account.  
-    Pass in the name of the folder where the Dockerfile is located, and your DockerHub username.
+    Pass in the name of the folder where the Dockerfile is located, your DockerHub username, and a tag for the image (defaults to 'latest').
 
     For example,
     ```  
-    ./build-image.sh nova-dev-ros2 <dockerHubUserName>
+    ./build-image.sh nova-dev-ros2 <dockerHubUserName> <tag>
     ```
     If your DockerHub user name is the same as your current Ubuntu user
     then you can omit the last argument.
