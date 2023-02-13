@@ -20,7 +20,7 @@ Is not fully secure - consider running untrusted code within this container as r
 ## Using an image
 
 ### Setup
-1. Install Docker (https://docs.docker.com/engine/install/ubuntu/) and Docker Compose (https://docs.docker.com/compose/install/)
+1. Install Docker and Docker Compose (https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 2. Set up git pull / push from github.com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
 3. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
 4. Clone the nova_setup repo into the same parent folder as nova_ws. For example, I put mine in ~/Nova/nova_setup
