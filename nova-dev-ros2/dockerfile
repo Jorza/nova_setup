@@ -3,24 +3,24 @@ FROM jorza/nova-dev-base:focal AS builder
 WORKDIR /home/nova-dev/setup-scripts
 
 # Start with non-git-dependent scripts
-COPY ./setup-scripts/scripts-0 .
-RUN ./1-title.sh
-RUN ./2.1-ros2.sh
-RUN ./2.2-cameras.sh
-RUN ./2.3-net-tools.sh
-#RUN ./2.4-gui.sh  # Exclude GUI for now. Deletes ROS2
+COPY ./setup-scripts/scripts-0 ./scripts-0
+RUN ./scripts-0/1-title.sh
+RUN ./scripts-0/2.1-ros2.sh
+RUN ./scripts-0/2.2-cameras.sh
+RUN ./scripts-0/2.3-net-tools.sh
+#RUN ./scripts-0/2.4-gui.sh  # Exclude GUI for now. Deletes ROS2
 
 # Add the builder's SSH info for use with git
 COPY ./.ssh /home/nova-dev/.ssh
 
 # Run git-dependent scripts
-COPY ./setup-scripts/scripts-1 .
-RUN ./3.0-git.sh; exit 0
-RUN ./3.1-arm-model-dependencies.sh
-RUN ./4.0-workspace.sh
-RUN ./4.1-git-additional-repos.sh
-#RUN ./5-gui-packages.sh  # Exclude GUI for now. Deletes ROS2
-RUN ./6-end.sh
+COPY ./setup-scripts/scripts-1 ./scripts-1
+RUN ./scripts-1/3.0-git.sh; exit 0
+RUN ./scripts-1/3.1-arm-model-dependencies.sh
+RUN ./scripts-1/4.0-workspace.sh
+RUN ./scripts-1/4.1-git-additional-repos.sh
+#RUN ./scripts-1/5-gui-packages.sh  # Exclude GUI for now. Deletes ROS2
+RUN ./scripts-1/6-end.sh
 
 # Remove unwanted files
 RUN sudo rm -rf /home/nova-dev/.ssh/*

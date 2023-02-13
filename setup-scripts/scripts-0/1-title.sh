@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # Source the setup file for colours and formatting
-source ./0-script-setup.sh
+source ./scripts-0/0-script-setup.sh
 
 if [[ $USER == "nova-dev" ]]
 then
   # Running in a container. Print the title and continue
   title "NOVA ROVER CONTAINER INSTALLATION SCRIPT"
-  exit 0
 else
   # Prompt the user to run the program
   title "NOVA ROVER INSTALLATION SCRIPT"

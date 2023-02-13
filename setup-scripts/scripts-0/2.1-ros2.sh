@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source the setup file for colours and formatting
-source ./0-script-setup.sh
+source ./scripts-0/0-script-setup.sh
 
 # Install ROS2
 information "Installing ROS 2..."
@@ -12,7 +12,6 @@ sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.or
 sudo apt update -y
 sudo apt install -y ros-foxy-desktop
 source /opt/ros/foxy/setup.bash
-sudo apt install -y python3-pip
 pip3 install -U argcomplete
 sudo apt install -y python-rosdep
 sudo rosdep init

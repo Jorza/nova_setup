@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source the setup file for colours and formatting
-source ./0-script-setup.sh
+source ./scripts-0/0-script-setup.sh
 
 # Create the workspace
 information "Creating Nova workspace..."
