@@ -34,10 +34,9 @@ source ./scripts-1/3.1-arm-model-dependencies.sh
 # Set up the workspace and the necessary repos
 source ./scripts-1/4.0-workspace.sh
 
+# Print the end title
+source ./scripts-1/6-end.sh
+
 # Build the workspace
 cd ~/nova_ws
 colcon build
-
-# Print the end title
-source ./scripts-1/6-end.sh
-cd ~/nova_ws

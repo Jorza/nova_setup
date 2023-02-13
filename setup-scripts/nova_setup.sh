@@ -40,10 +40,9 @@ source ./scripts-1/4.1-additional-repos.sh
 # Build the GUI
 source ./scripts-1/5-gui-packages.sh
 
+# Print the end title
+source ./scripts-1/6-end.sh
+
 # Build the workspace
 cd ~/nova_ws
 colcon build
-
-# Print the end title
-source ./scripts-1/6-end.sh
-cd ~/nova_ws
