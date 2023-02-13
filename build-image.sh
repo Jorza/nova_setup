@@ -14,11 +14,11 @@ then
     then
         TAG=$3
     fi
-    cp -r ./install-scripts ./$IMAGE_NAME
+    cp -r ./setup-scripts ./$IMAGE_NAME
     cp -r ~/.ssh ./$IMAGE_NAME
     sudo docker build -t $USER_NAME/$IMAGE_NAME:$TAG ./$IMAGE_NAME
     sudo docker push $USER_NAME/$IMAGE_NAME:$TAG
-    rm -r ./$IMAGE_NAME/install-scripts
+    rm -r ./$IMAGE_NAME/setup-scripts
     rm -r ./$IMAGE_NAME/.ssh
 else
     printf "Usage: ./build-image.sh IMAGE_NAME [USER_NAME] [TAG]\n"

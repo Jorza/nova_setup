@@ -3,7 +3,7 @@ FROM jorza/nova-dev-base:focal AS builder
 WORKDIR /home/nova-dev/setup-scripts
 
 # Start with non-git-dependent scripts
-COPY ./install-scripts/scripts-0 .
+COPY ./setup-scripts/scripts-0 .
 RUN ./1-title.sh
 RUN ./2.1-ros2.sh
 RUN ./2.2-cameras.sh
@@ -14,7 +14,7 @@ RUN ./2.3-net-tools.sh
 COPY ./.ssh /home/nova-dev/.ssh
 
 # Run git-dependent scripts
-COPY ./install-scripts/scripts-1 .
+COPY ./setup-scripts/scripts-1 .
 RUN ./3.0-git.sh; exit 0
 RUN ./3.1-arm-model-dependencies.sh
 RUN ./4.0-workspace.sh
