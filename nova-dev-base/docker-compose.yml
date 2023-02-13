@@ -3,10 +3,18 @@ version: "3.8"
 services:
   nova-dev-base:
     image: jorza/nova-dev-base:focal
+    privileged: true
     volumes:
       # For source code
       - ../../nova_ws:/home/nova-dev/nova_ws
       # SSH info for git
       - ./.ssh:/home/nova-dev/.ssh
+      # For running GUI applications
+      - /tmp/.X11-unix/:/tmp/.X11-unix
+      # Devices. Allows any USB devices and allows unplugging / plugging in after container is running
+      - /dev:/dev
+    environment:
+      # For running GUI applications
+      DISPLAY: $DISPLAY
     container_name: nova-dev-base
     tty: true
