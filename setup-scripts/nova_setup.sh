@@ -42,7 +42,3 @@ source ./scripts-1/5-gui-packages.sh
 
 # Print the end title
 source ./scripts-1/6-end.sh
-
-# Build the workspace
-cd ~/nova_ws
-colcon build
