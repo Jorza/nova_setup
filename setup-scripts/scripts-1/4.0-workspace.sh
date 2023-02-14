@@ -3,6 +3,9 @@
 # Source the setup file for colours and formatting
 source ./scripts-0/0-script-setup.sh
 
+# Save the current working directory
+cwd=$(pwd)
+
 # Create the workspace
 information "Creating Nova workspace..."
 sudo rm -rf /home/$USER/nova_ws
@@ -30,3 +33,6 @@ pip install -e coms_utils
 information "Setting up Workspace..."
 echo "source /home/$USER/nova_ws/src/rover/core/nova.sh" >> /home/$USER/.bashrc
 source /home/$USER/nova_ws/src/rover/core/nova.sh
+
+# Return to originl directory
+cd $cwd
