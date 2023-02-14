@@ -5,7 +5,7 @@ source ./scripts-0/0-script-setup.sh
 
 # Set up git
 information "Setting up git using SSH"
-if [[ $USER == "nova-dev"]]
+if [[ $USER == "nova-dev" ]]
 then
     # Running in a container
     # Give the container permission to use SSH to access github

@@ -24,6 +24,7 @@ git submodule update --init --recursive
 mkdir -p /home/$USER/nova_ws/other
 cd /home/$USER/nova_ws/other
 git clone git@github.com:MonashNovaRover/coms_utils.git
+pip install -e coms_utils
 
 # Add the nova.sh bash script to the bashrc
 information "Setting up Workspace..."
