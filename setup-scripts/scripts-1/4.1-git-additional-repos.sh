@@ -19,7 +19,6 @@ git clone git@github.com:MonashNovaRover/visualisation.git
 cd /home/$USER/nova_ws/other
 git clone git@github.com:MonashNovaRover/arduinos.git
 git clone git@github.com:MonashNovaRover/pics.git
-git clone git@github.com:MonashNovaRover/ik_machine.git
 git clone git@github.com:MonashNovaRover/tutorials.git
 
 # Return to originl directory
