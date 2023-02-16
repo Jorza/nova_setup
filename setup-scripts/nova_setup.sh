@@ -37,7 +37,7 @@ source ./scripts-1/3.1-arm-model-dependencies.sh
 source ./scripts-1/4.0-workspace.sh
 source ./scripts-1/4.1-additional-repos.sh
 
-# Build the GUI
+# Install GUI dependencies
 source ./scripts-1/5-gui-packages.sh
 
 # Print the end title
