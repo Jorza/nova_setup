@@ -7,6 +7,7 @@ source ./scripts-0/0-script-setup.sh
 cwd=$(pwd)
 
 # Install GUI packages
+information "Installing GUI packages..."
 cd /home/$USER/nova_ws/src/gui/wombatx
 npm install
 npm update
