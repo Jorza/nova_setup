@@ -21,10 +21,11 @@ Is not fully secure - consider running untrusted code within this container as r
 
 ### Setup
 1. Install Docker and Docker Compose using the Docker repository (https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
-2. Set up git pull / push from github.com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
-3. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
-4. Clone the nova_setup repo into the same parent folder as nova_ws. For example, I put mine in ~/Nova/nova_setup
-5. Change into the nova_setup directory and run the git setup script to clone all the Nova repos
+2. Add your user to the docker user group so you can use docker without sudo (https://docs.docker.com/engine/install/linux-postinstall/)
+3. Set up git pull / push from github.com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
+4. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
+5. Clone the nova_setup repo into the same parent folder as nova_ws. For example, I put mine in ~/Nova/nova_setup
+6. Change into the nova_setup directory and run the git setup script to clone all the Nova repos
     ```
     ./git-setup.sh
     ```
@@ -65,14 +66,14 @@ This keeps the container running in the background, so you can later run ./compo
  
 To stop all container instances (without destroying the container), open a host terminal in the container directory and run
 ```    
-sudo docker compose stop
+docker compose stop
 ```
  
 This saves the state of the container, so you can later run ./compose-run-\<container-nickname\>.sh and pick up where you left off.
 
 To destroy all container instances, open a host terminal in the container directory and run
 ```    
-sudo docker compose down
+docker compose down
 ```
 
 This is really only necessary when you want to update the container image. Any changes made within the container will be lost.
@@ -81,15 +82,15 @@ This is really only necessary when you want to update the container image. Any c
 If a new image has been released, follow these steps to get the new image and run the updated container.
 1. Destroy the old container. Note this will also permanently delete any changes made locally within the container.
     ```
-    sudo docker rm -f <container-name>
+    docker rm -f <container-name>
     ```
     For example,
     ```
-    sudo docker rm -f nova-dev-ros2
+    docker rm -f nova-dev-ros2
     ```
 2. Update the image.
     ```
-    sudo docker pull jorza/<container-name>
+    docker pull jorza/<container-name>
     ```
 3. Start the updated container as normal (see Starting Containers)
 

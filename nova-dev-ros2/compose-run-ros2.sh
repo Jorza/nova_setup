@@ -7,5 +7,5 @@ cp -r ~/.ssh .
 xhost +local:docker
 
 # Start conatiner using up, then open an interactive session
-sudo docker compose up -d
-sudo docker exec -it nova-dev-ros2-foxy bash
+docker compose up -d
+docker exec -it nova-dev-ros2-foxy bash
