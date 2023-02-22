@@ -8,7 +8,7 @@ RUN ./scripts-0/1-title.sh
 RUN ./scripts-0/2.1-ros2.sh
 #RUN ./scripts-0/2.2-cameras.sh  # Exclude cameras, doesn't work
 RUN ./scripts-0/2.3-net-tools.sh
-RUN ./scripts-0/2.4-gui.sh
+#RUN ./scripts-0/2.4-gui.sh  # Exclude GUI, doesn't work
 
 # Add the builder's SSH info for use with git
 COPY ./.ssh /home/nova-dev/.ssh
@@ -19,7 +19,7 @@ RUN ./scripts-1/3.0-git.sh; exit 0
 RUN ./scripts-1/3.1-arm-model-dependencies.sh
 RUN ./scripts-1/4.0-workspace.sh
 RUN ./scripts-1/4.1-git-additional-repos.sh
-RUN ./scripts-1/5-gui-packages.sh
+#RUN ./scripts-1/5-gui-packages.sh  # Exclude GUI, doesn't work
 RUN ./scripts-1/6-end.sh
 
 # Remove unwanted files
