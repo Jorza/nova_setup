@@ -20,7 +20,7 @@ Is not fully secure - consider running untrusted code within this container as r
 ## Using an image
 
 ### Setup
-1. Install Docker and Docker Compose using the Docker repository (https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+1. Install Docker Engine and Docker Compose using the Docker repository (https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 2. Add your user to the docker user group so you can use docker without sudo (https://docs.docker.com/engine/install/linux-postinstall/)
 3. Set up git pull / push from github.com/MonashNovaRover on your device using SSH. This will be used within the container to interact with the Nova repos
 4. Create a folder called nova_ws somewhere on your system. For example, I put mine in ~/Nova/nova_ws
@@ -29,6 +29,14 @@ Is not fully secure - consider running untrusted code within this container as r
     ```
     ./git-setup.sh
     ```
+
+#### Setup - Windows
+Install WSL2, then follow the same steps as above. Docker Desktop is available for Windows, but is not recommended since it can fail to start the Docker Engine.
+Start the docker daemon using
+```
+sudo dockerd
+```
+After running this command the terminal tab can be closed. This will need to be repeated whenever WSL is restarted.
 
 ### Starting containers
 To create or start a container, change to the container directory and run the compose-run-\<container-nickname\> script.
