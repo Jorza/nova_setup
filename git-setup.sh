@@ -17,8 +17,8 @@ cd $cwd
 # Clone the other GitHub files
 mkdir -p ../nova_ws/other && cd $_
 git clone git@github.com:MonashNovaRover/coms_utils.git
+pip install -e coms_utils
 git clone git@github.com:MonashNovaRover/arduinos.git
 git clone git@github.com:MonashNovaRover/pics.git
-git clone git@github.com:MonashNovaRover/ik_machine.git
 git clone git@github.com:MonashNovaRover/tutorials.git
 cd $cwd
