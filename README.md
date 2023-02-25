@@ -32,6 +32,7 @@ Is not fully secure - consider running untrusted code within this container as r
 
 #### Setup - Windows
 Install WSL2, then follow the same steps as above. Docker Desktop is available for Windows, but is not recommended since it can fail to start the Docker Engine.
+
 Start the docker daemon using
 ```
 sudo dockerd
